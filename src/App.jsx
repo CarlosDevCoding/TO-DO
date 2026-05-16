@@ -6,10 +6,16 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const [text, setText] = useState('')
   return (
     <>
-      <section id="center">
+    <br></br><div>Välkommen till min TO-DO app. <br></br>Byggd 100% för hand av en människa.<br></br>
+          Vad vill du anteckna idag?          <h2>Anteckningar</h2>
+          <div>
+            <textarea value={text} onChange={(e) => setText(e.target.value)} />
+          </div>
+    </div>
+        <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
