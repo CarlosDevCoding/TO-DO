@@ -16,13 +16,7 @@ function App() {
 
   return (
     <> 
-    <input
-      type="text"
-      placeholder="Skriv en uppgift...."
-      value={task}
-      onChange={(e) => setTask(e.target.value)}
-      onKeyDown={handleKeyDown}
-      />
+    
          <div>
           <h1>Välkommen till min TO-DO app.</h1>
             
@@ -32,12 +26,24 @@ function App() {
           </p>    
                     <h2>Anteckningar</h2>
           
-            <textarea
-             value={text}
-             onChange={(e) => setText(e.target.value)} 
+            <input
+      type="text"
+      placeholder="Skriv en uppgift...."
+      value={task}
+      onChange={(e) => setTask(e.target.value)}
+      onKeyDown={handleKeyDown}
+      />
+      
+      <br /> <br />
+       <textarea
+            
+              
+             placeholder="Tillfällig anteckning... "
+              
             />
-          </div>
-    
+          
+         </div>
+          
     </>
   )
 }
