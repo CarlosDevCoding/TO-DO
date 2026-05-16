@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [text, setText] = useState('')
+  const [text, setText] = useState("")
   const[task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
 
@@ -17,7 +17,7 @@ function App() {
   return (
     <> 
     
-         <div>
+         <div className="app">
           <h1>Välkommen till min TO-DO app.</h1>
             
              <p>Byggd 100% för hand av en människa. 
@@ -33,7 +33,13 @@ function App() {
       onChange={(e) => setTask(e.target.value)}
       onKeyDown={handleKeyDown}
       />
-      
+      <div className="task-list">
+      {tasks.map((t, index) => (
+        <div key={index} className="task-item">
+          {t}
+        </div>
+      ))}
+      </div>
       <br /> <br />
        <textarea
             
@@ -42,7 +48,7 @@ function App() {
               
             />
           
-         </div>
+      </div>  
           
     </>
   )
