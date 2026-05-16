@@ -14,6 +14,10 @@ function App() {
     }
   };
 
+  const deleteTask = (indexToDelete) => {
+    setTasks(tasks.filter((_, index) => index !== indexToDelete));
+  }
+
   return (
     <> 
     
@@ -35,12 +39,18 @@ function App() {
       />
       <div className="task-list">
       {tasks.map((t, index) => (
+        
         <div key={index} className="task-item">
-          {t}
+          
+        {t} 
+          <button onClick={() => deleteTask(index)}>Delete</button>
         </div>
+        
       ))}
+      
       </div>
       <br /> <br />
+      
        <textarea
             
               
@@ -49,6 +59,7 @@ function App() {
             />
           
       </div>  
+      
           
     </>
   )
