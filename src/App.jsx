@@ -6,6 +6,28 @@ function App() {
 
   const [task, setTask] = useState("");
   const [tasks, setTasks] = useState([]);
+  useEffect(() => {
+
+  fetchTasks();
+
+}, []);
+
+const fetchTasks = async () => {
+
+  try {
+
+    const response = await fetch("http://localhost:5000/tasks");
+
+    const data = await response.json();
+
+    setTasks(data);
+
+  } catch (error) {
+
+    console.log(error);
+
+  }
+};
 
   const handleKeyDown = async (e) => {
 
