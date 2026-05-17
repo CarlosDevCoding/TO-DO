@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import "./App.css";
 
@@ -41,11 +41,24 @@ function App() {
     }
   };
 
-  const deleteTask = (idToDelete) => {
+ const deleteTask = async (idToDelete) => {
+
+  try {
+
+    await fetch(`http://localhost:5000/tasks/${idToDelete}`, {
+
+      method: "DELETE",
+
+    });
 
     setTasks(tasks.filter((task) => task._id !== idToDelete));
 
-  };
+  } catch (error) {
+
+    console.log(error);
+
+  }
+};
 
   return (
 

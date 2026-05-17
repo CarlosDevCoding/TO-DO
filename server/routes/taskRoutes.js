@@ -4,7 +4,7 @@ const router = express.Router();
 const Task = require("../models/Task");
 
 
-// CREATE TASK
+
 router.post("/", async (req, res) => {
   try {
 
@@ -23,4 +23,37 @@ router.post("/", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+
+  try {
+
+    const deletedTask = await Task.findByIdAndDelete(req.params.id);
+
+    res.json(deletedTask);
+
+  } catch (error) {
+
+    res.status(500).json({
+      error: error.message,
+    });
+
+  }
+});
+
+router.get("/", async (req, res) => {
+
+  try {
+
+    const tasks = await Task.find();
+
+    res.json(tasks);
+
+  } catch (error) {
+
+    res.status(500).json({
+      error: error.message,
+    });
+
+  }
+});
 module.exports = router;
